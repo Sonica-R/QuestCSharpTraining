@@ -10,16 +10,29 @@ namespace NumToString
     {
         static void Main(string[] args)
         {
-            var numbers = new string[] { "one", "two", "three", "four", "five", "six", "seven" };
-            //Console.Write("Enter the length of array : ");
-            string[] input = new string[] { "One, 2, Three, 2" };
+            var numbers = new string[] { "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"};
+            string input = " One, 2, Three, 2" ;
 
             var inpItems = input.Replace(" ", "").Split(',');
+            var sb = new StringBuilder();
 
-            for (int j = 0; j < arrNum.Length; j++)
+            foreach (var inpItem in inpItems)
             {
-                Console.WriteLine(arrNum[j]);
+                if(inpItem.Length <= 2)
+                {
+                    int num = int.Parse(inpItem);
+                    string text = numbers[num - 1];
+                    sb.Append(text);
+                    sb.Append(" ");
+                }
+                else
+                {
+                    sb.Append(inpItem);
+                    sb.Append(" ");
+                }
             }
+
+            Console.WriteLine(sb.ToString());
 
         }
     }
